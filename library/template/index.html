@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}歡迎光臨私立柯南圖書館網頁{% endblock title %}
+{% block headmessage %}<h3 style = 'font-family:標楷體';>本站書籍列表</a>{% endblock headmessage %}
+{% block content %}
+{% for post in posts %}
+<div class="card">
+    <div class="card-header">
+        <p style="font-family:微軟正黑體";font-size:14pt;font-weight:bold>
+            <a href="/post/{{post.slug}}">{{post.title}}</a> 
+        </p>
+    </div>
+    <div class="card-body" style='background-color:#B8CBFF'>
+        <p>
+            {{post.body | truncatechars:40}}
+        </p>
+    </div>
+    <div class="card-footer" style='background-color:#EADCFF'>
+        <p>
+            上架時間 : {{post.pub_date | date:"Y M d"}}
+        </p>
+    </div>
+</div>
+<br>
+{% endfor %}
+{% endblock content %}
