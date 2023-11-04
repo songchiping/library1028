@@ -4,22 +4,19 @@
 {% block content %}
 {% for post in posts %}
 <div class="card">
-    <div class="card-header">
+    <div class="card-header" style='background-color:#e8e8e8'>
         <p style="font-family:微軟正黑體";font-size:14pt;font-weight:bold>
             <a href="/post/{{post.slug}}">{{post.title}}</a> 
         </p>
     </div>
-    <div class="card-body" style='background-color:#8496ec'>
+    <div class="card-body" style='background-color:#e97e70'>
         <p>
             {{post.body | truncatechars:40}}
         </p>
     </div>
-    <div class="card-footer" style='background-color:#e97e70'>
+    <div class="card-footer" style='background-color:#8496ec'>
         <p>
-            發行時間 : {{post.release_date | date:"Y M d"}}
-        </p>
-        <p>
-            上架時間 : {{post.pub_date | date:"Y M d"}}
+            發行時間 : {{post.release_date | truncatechars:40}}
         </p>
     </div>
 </div>
