@@ -5,12 +5,13 @@ class Post(models.Model):
     title = models.CharField(max_length = 200)
     slug = models.CharField(max_length = 200)
     body = models.TextField()
-    release_date = models.TextField()
+    picture = models.TextField(null=True)
+    release_date = models.DateField(max_length = 200 ,null=True)
     
     # class Meta:
     #     ordering = ('-pub_date', )
-    # def __str__(self) -> str:
-    #     return self.title
+    def __str__(self) -> str:
+        return self.title
 
 
 # class NewTable(models.Model):
@@ -24,17 +25,17 @@ class Post(models.Model):
 #     int_f = models.IntegerField(default = 2010)
 #     text_f = models.TextField()
 
-class Product(models.Model):
-    SIZE = (('S', 'Small'), 
-            ('M', 'Medium'),
-            ('L', 'Large'),
-    )
-    sku = models.CharField(max_length=5)
-    name = models.CharField(max_length=20)
-    price = models.PositiveBigIntegerField()
-    size = models.CharField(max_length=1, choices=SIZE)
-    result = models.BooleanField()
+# class Product(models.Model):
+#     SIZE = (('S', 'Small'), 
+#             ('M', 'Medium'),
+#             ('L', 'Large'),
+#     )
+#     sku = models.CharField(max_length=5)
+#     name = models.CharField(max_length=20)
+#     price = models.PositiveBigIntegerField()
+#     size = models.CharField(max_length=1, choices=SIZE)
+#     result = models.BooleanField()
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
