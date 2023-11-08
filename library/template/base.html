@@ -15,11 +15,11 @@
         <style>
             .container {
                 width: 100%;
-                height: 275px;
+                height: 425px;
                 left: 50px;
                 bottom:5px;
                 position: fixed;
-                background-image: url("{% static 'images/kid.png' %}");
+                background-image: url("{% static 'images/kid1.png' %}");
                 background-size: contain;
                 background-repeat: no-repeat;
             }
@@ -29,17 +29,17 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="container-fluid">
+        <div class="container-fluid" style='background-color:#d8e9f3'>
             {% include "header.html" %}
             <div class="row">
                 <div class="col-sm-3 col-md-3">
-                    <div class="card">
+                    <div class="card" style='background-color:#b2d3e6'>
                       <div class="card-header">
                             <h3>Menu</h3>
                       </div>
-                      <div class="card-body">
+                      <div class="card-body" style='background-color:#b2d3e6'>
                             <div class="list-group">
-                                <a href="/" class="list-group-item">11056009宋繼平</a>
+                                <a href="/" class="list-group-item" style='background-color:#ffffff'>11056009宋繼平</a>
                                 <a href="https://zh.wikipedia.org/zh-tw/%E9%9D%92%E5%B1%B1%E5%89%9B%E6%98%8C" class="list-group-item">青山剛昌</a>
                                 <a href="https://tpml.gov.taipei/News_Content.aspx?n=4F66F55F388033A7&s=4643DE8A8785BFD0" class="list-group-item">市立東湖分館</a>
                                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="list-group-item">Youtube</a>
@@ -49,7 +49,7 @@
                     <div class="container" ></div>                    
                 </div>    
                 <div class="col-sm-9 col-md-9">
-                    <div class="card">
+                    <div class="card" style='background-color:#68a7ca'>
                         <div class="card-header">
                             {% block headmessage %}{% endblock %}                        
                         </div>
