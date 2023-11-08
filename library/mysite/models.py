@@ -6,6 +6,7 @@ class Post(models.Model):
     slug = models.CharField(max_length = 200)
     body = models.TextField()
     picture = models.TextField(null=True)
+    choose = models.TextField(null=True)
     release_date = models.DateField(max_length = 200 ,null=True)
     
     # class Meta:

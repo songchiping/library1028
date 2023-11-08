@@ -19,6 +19,7 @@ def showpost(request, slug):
             return redirect("/") #導到首頁
     except:
         return redirect("/")
+    
 
 # def homepage(request):    
 #     post = Post.objects.all() #select * from post
