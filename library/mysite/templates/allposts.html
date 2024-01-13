@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}歡迎光臨我的部落格{% endblock title %}
+{% block headmessage %} 
+<h3 style='font-family:標楷體;'>借還記錄</a> 
+{% endblock headmessage %} 
+{% block content %} 
+{% for post in posts %}
+{% if forloop.first %}
+<table>
+        <tr style="flex: 1; padding: 10px; background-color:#ffffff">
+            <th>Title</th>
+            <th>SLUG</th>
+            <th>pub data</th>
+        </tr>
+{% endif %}
+        <tr style="background-color: #ffffff;">      
+            <td>{{ post.title }}</td>
+            <td>{{ post.slug }}</td>
+            <td>{{ post.pub_date }}</td>
+            <td><a href="{% url 'show-comments' post.id %}">借/還</a></td>
+        </tr>
+{% if forloop.last %}
+</table>
+{% endif %}
+
+{% endfor %}
+{% endblock content %}

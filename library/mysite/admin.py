@@ -5,7 +5,7 @@ from mysite.models import Post
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):
-    list_display=('title','slug', 'body' ,'picture', 'release_date','choose')
+    list_display=('title','slug', 'body' ,'picture', 'release_date')
     
 admin.site.register(Post,PostAdmin)
 

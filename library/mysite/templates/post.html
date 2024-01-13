@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load markdown_extras %}
+{% block title %}  -  {% endblock title %}
+{% block headmessage %}
+    <h3 style = 'font-family:微軟正黑體'>{{ post.title }}</h3>
+    <a style = 'font-family:微軟正黑體;' href='/'>回首頁</a>
+{% endblock headmessage %}
+{% block content %}
+    <div style="display: flex; ">
+        <div style="flex: 1; padding: 10px; background-color:#ffffff">
+            <p style="font-family:微軟正黑體;font-size:14pt;font-weight:bold">
+                {{ post.picture | convert_markdown | safe }}
+                <div class="form-check"> 
+                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked >     
+                    <label class="form-check-label" for="flexRadioCheckedDisabled"> 館藏中 </label> 
+                </div> 
+                <div class="form-check"> 
+                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" > 
+                    <label class="form-check-label" for="flexRadioDisabled"> 預約中 </label> 
+                </div> 
+                <div class="form-check"> 
+                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" > 
+                    <label class="form-check-label" for="flexRadioDisabled"> 外借中 </label> 
+                </div>
+                
+            </p> 
+        </div>
+        <div style="flex: 1; padding: 10px; background-color:#ffffff">  
+            <p style="font-family:微軟正黑體;font-size:14pt;font-weight:bold">
+                {{ post.body | convert_markdown | safe }}
+            </p>
+        </div>
+    </div>
+
+{% endblock content %}

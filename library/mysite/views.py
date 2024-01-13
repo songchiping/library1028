@@ -3,6 +3,7 @@ from mysite.models import Post
 from django.http import HttpResponse
 from datetime import datetime
 from django.shortcuts import redirect
+from .filters import Search
 
 # Create your views here.
 def homepage(request):
@@ -11,23 +12,23 @@ def homepage(request):
     return render(request, 'index.html' , locals())
 
 def showpost(request, slug):
-    try:
-        post=Post.objects.get(slug=slug)
-        if post != None:            
-            return render(request, 'post.html' , locals())
-        else:
-            return redirect("/") #導到首頁
-    except:
-        return redirect("/")
+    post = Post.objects.get(slug=slug) 
+    return render(request, 'post.html', locals())
     
+def show_all_posts(request):
+    posts = Post.objects.all()
+    return render(request, 'allposts.html', locals())
 
-# def homepage(request):    
-#     post = Post.objects.all() #select * from post
-#     post_lists = list()
-#     for counter,post in enumerate(post):
-#         post_lists.append(f'No.{counter}{post}<br>')
-#     return HttpResponse(post_lists)
+def show_comments(request, post_id):
+    comments = Post.objects.get(id=post_id).comment_set.all()
+    return render(request, 'comments.html', locals())
 
-# def showpost(request, slug):
-#     post = Post.objects.get(slug=slug)
-#     return render(request ,'post.html', locals())
+def index(request):
+    post = Post.objects.all()
+    if request.method == "POST":
+        search = Search(request.POST, queryset=post)
+    else:
+        search = Search(request.GET, queryset=post)
+    context = {'search': search}
+    return render(request, 'index2.html', context)
+

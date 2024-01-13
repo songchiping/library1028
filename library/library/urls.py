@@ -17,9 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mysite import views as mv
+from mytest import views as testv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',mv.homepage, name='homepage'),
-    path('post/<slug:slug>/', mv.showpost, name="showpost" )
+    path('post/<slug:slug>/', mv.showpost, name="showpost" ),
+    path('post/', mv.show_all_posts, name="show-all-posts"),
+    path('post/<int:post_id>/comments', mv.show_comments, name='show-comments'),
+    path('find/',mv.index, name="index1"),
+    path('test/', testv.index, name="test-new"),
+    path('test/delpost/<int:pid>/', testv.delpost),
+    path('test/contact', testv.contact),
+    path('borrowb/', testv.borrowb),
+    path('register/', testv.register, name='register'),
+    path('login/', testv.login, name='login'),
+    path('profile/', testv.profile)   
 ]
